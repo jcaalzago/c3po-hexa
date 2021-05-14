@@ -1,6 +1,9 @@
+#include"Articulacion.h"
+
 void setup() {
   // put your setup code here, to run once:
-
+  Serial.begin(9600);
+  Articulacion a1(16);
 }
 
 void loop() {
