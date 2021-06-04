@@ -15,6 +15,16 @@ bool Articulacion::mueveGrado(const int gradoDestino){
   int posicionActual = this->servo.read();
   Serial.print("El grado actual del servo es: ");
   Serial.println(posicionActual);
-  
-  
+  if( gradoDestino > posicionActual ){
+    posicionActual++;    
+  }else if(gradoDestino < posicionActual){
+    posicionActual--;
+  }else{
+    return true;
+  }
+
+  this->servo.write(posicionActual);
+
+  return posicionActual == gradoDestino;
+ 
 }
